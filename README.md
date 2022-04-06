@@ -1,8 +1,10 @@
+# Report Pending Github Health Check Status
 
-# bitrise-step-report-pending-gitub-health-status
+Updates the Github health status for a given pull request to pending
 
-This is a placeholder README.md for a new repository
+## How to use this Step
 
-### License
-
-This code is open source software licensed under the [Apache 2.0 License]("http://www.apache.org/licenses/LICENSE-2.0.html").
+```
+- git::https://github.com/hmrc/bitrise-step-report-pending-github-health-status.git@main:
+    title: Report Pending Github Health Check Status
+```
