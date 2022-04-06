@@ -1,0 +1,29 @@
+title: |-
+  Report Pending Github Health Check Status
+summary: |
+  Updates the Github health status for a given pull request to pending
+description: |
+  Updates the Github health status for a given pull request to pending
+website: https://github.com/hmrc/bitrise-step-report-pending-github-health-status
+source_code_url: https://github.com/hmrc/bitrise-step-report-pending-github-health-status
+support_url: https://github.com/hmrc/bitrise-step-report-pending-github-health-status/issues
+host_os_tags:
+  - osx-10.10
+  - ubuntu-16.04
+type_tags:
+  - utility
+is_requires_admin_user: true
+is_always_run: false
+is_skippable: false
+run_if: ""
+deps:
+  brew:
+    - name: git
+    - name: wget
+  apt_get:
+    - name: git
+    - name: wget
+
+toolkit:
+  bash:
+    entry_file: step.sh
