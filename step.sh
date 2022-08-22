@@ -5,13 +5,20 @@ set -e
 echo "Env variables"
 echo "BITRISEIO_GIT_REPOSITORY_SLUG = $BITRISEIO_GIT_REPOSITORY_SLUG"
 echo "BITRISE_GIT_COMMIT = $BITRISE_GIT_COMMIT"
+echo "BITRISE_GIT_TAG = $BITRISE_GIT_TAG"
 echo "BITRISE_BUILD_URL = $BITRISE_BUILD_URL"
 echo "BITRISEIO_GIT_REPOSITORY_SLUG = $BITRISEIO_GIT_REPOSITORY_SLUG"
 echo "BITRISE_GIT_BRANCH = $BITRISE_GIT_BRANCH"
 echo "BITRISE_TRIGGERED_WORKFLOW_ID = $BITRISE_TRIGGERED_WORKFLOW_ID"
 
+SHA=$BITRISE_GIT_COMMIT
+if [ -z "${SHA}" ]; then
+    SHA=$BITRISE_GIT_TAG
+fi
 
-URL="https://api.github.com/repos/hmrc/$BITRISEIO_GIT_REPOSITORY_SLUG/statuses/$BITRISE_GIT_COMMIT"
+echo "SHA = $SHA"
+
+URL="https://api.github.com/repos/hmrc/$BITRISEIO_GIT_REPOSITORY_SLUG/statuses/$SHA"
 echo "URL = $URL"
 
 STATUSCODE=$(curl --silent --output /dev/stderr --write-out "%{http_code}" \
